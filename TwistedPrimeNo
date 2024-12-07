@@ -1,0 +1,43 @@
+package ZohoQuestions;
+
+import java.util.Scanner;
+
+public class TwistedPrime {
+    public static void main(String[] args) {
+
+        // A number is said to be twisted prime if it is a prime number and reverse of
+        // the number is also a prime number.
+
+        // Examples: Input : 97 Output : Twisted
+        
+        // Prime Number Explanation: 97 is a prime number and its reverse 79 is also a
+        // prime number.
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the  Number : ");
+        int input = sc.nextInt();
+        int cpy = input;
+        int result = 0;
+        boolean flag = true;
+
+        if (input % 2 == 0) {
+            flag = false;
+        } else {
+            flag = true;
+        }
+
+        for (int i = 0; i < input; i++) {
+            int digit = input % 10;
+            result = result * 10 + digit;
+            input = input / 10;
+        }
+        boolean res = result % 2 != 0;
+
+        if (flag == true && res == true) {
+            System.out.println(cpy + " and " + result + " is Twisted prime no");
+        } else {
+            System.out.println("Not an  prime no....");
+        }
+
+    }
+}
